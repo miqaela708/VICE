@@ -361,7 +361,7 @@ extern double scale_metallicity(SINGLEZONE sz, unsigned long timestep) {
 	 */
 	for (i = 0; i < sz.n_elements; i++) {
 		/* Don't count helium as a metal */
-		if (strcmp((*sz.elements[i]).symbol, "he")) {
+		if (!strcmp((*sz.elements[i]).symbol, "o")) {
 			solar_by_element += (*sz.elements[i]).solar;
 			z_by_element += (*sz.elements[i]).Z[timestep];
 		} else {}
@@ -506,4 +506,3 @@ extern double max(double *arr, unsigned long length) {
 	}
 
 }
-
