@@ -14,7 +14,8 @@ if vice.version[:2] < (1, 2):
 	raise RuntimeError("""VICE version >= 1.2.0 is required to produce \
 Johnson et al. (2021) figures. Current: %s""" % (vice.__version__))
 else: pass
-from vice.yields.presets import JW20
+#from vice.yields.presets import JW20
+from . import cooke_yield_settings
 from vice.toolkit import hydrodisk
 vice.yields.sneia.settings['fe'] *= 10**0.1
 from .._globals import END_TIME, MAX_SF_RADIUS, ZONE_WIDTH
@@ -79,6 +80,7 @@ class diskmodel(vice.milkyway):
 		self.evolution = star_formation_history(spec = spec,
 			zone_width = zone_width)
 		self.mode = "sfr"
+		print('This worked.')
 
 
 	def run(self, *args, **kwargs):
@@ -168,4 +170,3 @@ class star_formation_history:
 				return gradient(radius) * interpolate(self._radii[-2],
 					self._evol[-2](time), self._radii[-1], self._evol[-1](time),
 					radius)
-

@@ -65,6 +65,8 @@ class primordial(elemental_settings):
 		for elem in _RECOGNIZED_ELEMENTS_:
 			if elem == "he":
 				value = 0.24721
+			elif elem == "au":
+				value = 2.4525e-05
 			else:
 				value = 0.0
 			data[elem] = value
@@ -80,4 +82,3 @@ class primordial(elemental_settings):
 
 
 primordial = primordial()
-
